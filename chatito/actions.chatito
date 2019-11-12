@@ -1,0 +1,337 @@
+// answer categories
+%[answer_start]('training':'800')
+    ~[answer]
+%[answer_present]('training':'800')
+    ~[answering]
+%[answer_bare]('training':'800')
+    ~[answer_bare]
+
+// say categories
+%[say_start]('training':'800')
+    ~[say]
+%[say_present]('training':'800')
+    ~[saying]
+%[say_bare]('training':'800')
+    ~[say_bare]
+
+// ask categories
+%[ask_start]('training':'800')
+    ~[ask]
+%[ask_present]('training':'800')
+    ~[asking]
+%[ask_bare]('training':'800')
+    ~[ask_bare]
+
+// listen categories
+%[listen_start]('training':'800')
+    ~[listen]
+%[listen_present]('training':'800')
+    ~[listening]
+%[listen_bare]('training':'800')
+    ~[listen_bare]
+
+// grab categories
+%[grab_start]('training':'800')
+    ~[grab]
+%[grab_present]('training':'800')
+    ~[grabbing]
+%[grab_bare]('training':'800')
+    ~[grab_bare]
+
+// place categories
+%[place_start]('training':'800')
+    ~[place]
+%[place_present]('training':'800')
+    ~[placing]
+%[place_bare]('training':'800')
+    ~[place_bare]
+~[place]
+    ~[next?] ~[please?] ~[place_bare]
+~[place_bare]
+		~[HELPER_place] $item ~[HELPER_on] $location
+		~[HELPER_place] $item ~[HELPER_in] $location
+		put down $item
+		put down $item ~[HELPER_on] $location
+		put down $item ~[HELPER_in] $location
+		release $item
+~[placing]
+		~[HELPER_placing] $item ~[HELPER_on] $location
+		~[HELPER_placing] $item ~[HELPER_in] $location
+		put down $item
+		put down $item ~[HELPER_on] $location
+		put down $item ~[HELPER_in] $location
+		release $item
+~[HELPER_in]
+    in
+    within
+    into
+~[HELPER_on]
+    on
+    on top of
+    onto
+~[HELPER_place]
+    put
+    release
+    place
+		leave
+		stick
+		position
+~[HELPER_placing]
+		putting
+		releasing
+		placing
+		leaving
+		sticking
+		positioning
+
+// handoff categories
+%[handoff_start]('training':'800')
+    ~[handoff]
+%[handoff_present]('training':'800')
+    ~[handing_off]
+%[handoff_bare]('training':'800')
+    ~[handoff_bare]
+~[handoff]
+    ~[next?] ~[please?] ~[HELPER_handoff] $item to $subject
+~[handoff_bare]
+    ~[HELPER_handoff] $item to $subject
+		~[HELPER_handoff] $subject $item
+~[handing_off]
+    ~[HELPER_handing_off] $item to $subject
+		~[HELPER_handing_off] $subject $item
+~[HELPER_handoff]
+    give
+    hand over
+		offer
+~[HELPER_handing_off]
+    giving
+    handing over
+		offering
+
+// move categories
+%[move_start]('training':'800')
+    ~[move]
+%[move_present]('training':'800')
+    ~[moving]
+%[move_bare]('training':'800')
+    ~[move_bare]
+~[move]
+    ~[next?] ~[please?] ~[move_bare]
+~[move_bare]
+    ~[HELPER_move] ~[direction]
+    ~[HELPER_move] to ~[HELPER_location]
+    ~[HELPER_move] over to ~[HELPER_location]
+    ~[HELPER_move] away from ~[HELPER_location]
+~[moving]
+    ~[HELPER_moving] ~[direction]
+    ~[HELPER_moving] to ~[HELPER_location]
+    ~[HELPER_moving] over to ~[HELPER_location]
+    ~[HELPER_moving] away from ~[HELPER_location]
+~[HELPER_move]
+    move
+    go
+    roll
+    walk
+    navigate
+    get
+~[HELPER_moving]
+    moving
+    going
+    rolling
+    walking
+    navigating
+    getting
+~[direction]
+		left
+		right
+		forward
+		back
+		here
+		there
+		over here
+		over there
+		away
+
+// gesture categories
+%[gesture_start]('training':'800')
+    ~[gesture]
+%[gesture_present]('training':'800')
+    ~[gesturing]
+%[gesture_bare]('training':'800')
+    ~[gesture_bare]
+~[gesture]
+    ~[next?] ~[please?] ~[gesture_bare]
+~[gesture_bare]
+    gesture
+    gesture over ~[HELPER_location]
+    do a ~[HELPER_gesture]
+    ~[gesture_colloquial] over ~[HELPER_location]
+~[gesturing]
+    gesturing
+    gesturing over ~[HELPER_location]
+    doing a ~[HELPER_gesture]
+    ~[gesturing_colloquial] over ~[HELPER_location]
+~[HELPER_gesture]
+    ~[gesture_type] gesture
+~[gesture_type]
+    diectic
+    beat
+    iconic
+    metaphoric
+    conceptual
+    wave
+~[gesture_colloquial]
+    wave
+    point
+~[gesturing_colloquial]
+    waving
+    pointing
+
+// gaze categories
+%[gaze_start]('training':'800')
+    ~[gaze]
+%[gaze_present]('training':'800')
+    ~[gazing]
+%[gaze_bare]('training':'800')
+    ~[gaze_bare]
+~[gaze]
+    ~[next?] ~[please?] ~[gaze_bare]
+~[gaze_bare]
+    ~[gaze_syn] at $subject
+    ~[gaze_syn] to $subject
+    ~[gaze_syn] at $location
+    ~[gaze_syn] to $location
+    ~[gaze_syn] over here
+    ~[gaze_syn] over there
+    ~[gaze_syn] over ~[HELPER_location]
+    start ~[HELPER_gaze]
+~[gazing]
+    ~[gazing_syn] at $subject
+    ~[gazing_syn] to $subject
+    ~[gazing_syn] at $location
+    ~[gazing_syn] to $location
+    ~[gazing_syn] over here
+    ~[gazing_syn] over there
+    ~[gazing_syn] over ~[HELPER_location]
+    starting ~[HELPER_gaze]
+~[gaze_syn]
+    look
+    gaze
+~[gazing_syn]
+    looking
+    gazing
+~[HELPER_gaze]
+    intimacy modulating gaze
+    cognitive gaze
+    gaze aversion
+
+~[HELPER_location]
+    $location
+    here
+    there
+~[answer]
+    ~[next?] ~[please?] ~[answer_bare]
+~[answer_bare]
+    ~[answer_syn] the ~[question]
+    ~[answer_syn] $subject ~[question]
+~[answering]
+    ~[answering_syn] the ~[question]
+    ~[answering_syn] $subject ~[question]
+~[answer_syn]
+    answer
+    respond to
+~[answering_syn]
+    answering
+    responding to
+~[ask]
+    ~[next?] ~[please?] ~[ask_bare]
+~[asking]
+    asking a ~[question] ~[question_topic]
+    asking $subject a ~[question] ~[question_topic]
+    saying a ~[question] ~[question_topic]
+    giving $subject a ~[question] ~[question_topic]
+    asking $question
+~[ask_bare]
+    ask a ~[question] ~[question_topic]
+    ask $subject a ~[question] ~[question_topic]
+    say a ~[question] ~[question_topic]
+    give $subject a ~[question] ~[question_topic]
+    ask $question
+~[question_topic]
+    about $question
+~[grab]
+    ~[next?] ~[please?] ~[grab_bare]
+~[grab_bare]
+    ~[HELPER_grab] $item
+    ~[HELPER_grab] $item from $location
+    ~[HELPER_grab] $item on $location
+~[grabbing]
+    ~[HELPER_grabbing] $item
+    ~[HELPER_grabbing] $item from $location
+    ~[HELPER_grabbing] $item on $location
+~[HELPER_grab]
+    grab
+    pick up
+    grasp
+    take
+~[HELPER_grabbing]
+    grabbing
+    picking up
+    grasping
+    taking
+~[say]
+    ~[next?] ~[please?] ~[say_bare]
+~[say_bare]
+    talk to $subject
+    talk
+    say stuff to $subject
+    say stuff
+~[saying]
+    talking to $subject
+    talking
+    saying stuff to $subject
+    saying stuff
+~[listen]
+    ~[next?] ~[please?] ~[listen_bare]
+~[listen_bare]
+    listen
+    ~[HELPER_listen] $subject
+    ~[HELPER_listen] $subject question
+    ~[HELPER_listen] question from $subject
+    ~[HELPER_listen] what $subject has to say
+    ~[HELPER_listen] whatever $subject has to say
+    ~[HELPER_listen] what $subject says
+    ~[HELPER_listen] whatever $subject says
+~[listening]
+    listening
+    ~[HELPER_listening] $subject
+    ~[HELPER_listening] $subject question
+    ~[HELPER_listening] question from $subject
+    ~[HELPER_listening] what $subject has to say
+    ~[HELPER_listening] whatever $subject has to say
+    ~[HELPER_listening] what $subject says
+    ~[HELPER_listening] whatever $subject says
+~[HELPER_listen]
+    listen to
+    wait for
+~[HELPER_listening]
+    listening to
+    waiting for
+~[question]
+    question
+    query
+~[request]
+    please
+    would you
+    could you
+    I need you to
+    I'd like you to
+    you have to
+    you must
+    you need to
+    you will need to
+~[next]
+    next
+    after that
+    subsequently
+    following that

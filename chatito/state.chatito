@@ -1,0 +1,43 @@
+%[human]('training':'800')
+    ~[hum]
+%[robot]('training':'800')
+    ~[rob]
+%[env]('training':'800')
+    ~[env]
+~[hum]
+    $subject ~[past_tense_human]
+    $subject is ~[present_tense]
+~[rob]
+    you ~[past_tense_robot]
+    you are ~[present_tense]
+~[env]
+    there are no $item left
+    the $item are on the counter
+~[present_tense]
+    asking a question
+    stopping
+    idle
+    saying something
+    handing things over
+    moving to $location
+    asking for clarification
+~[past_tense_human]
+    ~[has?] asked a question
+    ~[has?] stopped
+    ~[has?] idled
+    ~[has?] said something
+    ~[has?] handed things over
+    ~[has?] moved to $location
+    ~[has?] asked for clarification
+~[past_tense_robot]
+    ~[have?] asked a question
+    ~[have?] stopped
+    ~[have?] idled
+    ~[have?] said something
+    ~[have?] handed things over
+    ~[have?] moved to $location
+    ~[have?] asked for clarification
+~[has]
+    has
+~[have]
+    have
