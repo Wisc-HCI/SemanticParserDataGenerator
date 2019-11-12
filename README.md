@@ -1,5 +1,13 @@
 # Social Robotics Command Generator
 
+## Requirements
+To use this code, you need access to the following:
+   - Python 3
+      - json
+      - numpy
+
+You will have also needed to generate a ```leaves.json``` file through chatito [1]. Chatito will create training and testing json files, which you can combine and rename to ```leaves.json```. 
+
 ## Running the generator
 Simply type '''./generate.sh''' and the data will be generated and split into training, testing, and validation sets.
 
@@ -11,4 +19,5 @@ This data can be used alongside other datasets, such as the atis, jobs, and geo 
 
 # References
 [1] https://github.com/rodrigopivi/Chatito
+
 [2] Yin, Pengcheng & Neubig, Graham. (2018). TRANX: A Transition-based Neural Abstract Syntax Parser for Semantic Parsing and Code Generation. 7-12. 10.18653/v1/D18-2002. 
