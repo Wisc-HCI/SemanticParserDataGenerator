@@ -9,7 +9,7 @@ To use this code, you need access to the following:
 You will have also needed to generate a ```leaves.json``` file through chatito [1]. Chatito will create training and testing json files, which you can combine and rename to ```leaves.json```. 
 
 ## Running the generator
-Simply type '''python3 generate.py''' and the data will be generated and split into training, testing, and validation sets.
+Simply type '''python3 generator.py''' and the data will be generated and split into training, testing, and validation sets.
 
 ## Modifying the generator
 Natural-language utterances for small-commands can be easily generated using an off-the-shelf tool such as chatito [1]. The chatito file is included in the chatito directory. Using chatito, a new leaves.json file can be created.
