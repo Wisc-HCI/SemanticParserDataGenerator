@@ -48,19 +48,19 @@
 ~[place]
     ~[next?] ~[please?] ~[place_bare]
 ~[place_bare]
-		~[HELPER_place] $item ~[HELPER_on] $location
-		~[HELPER_place] $item ~[HELPER_in] $location
-		put down $item
-		put down $item ~[HELPER_on] $location
-		put down $item ~[HELPER_in] $location
-		release $item
+    ~[HELPER_place] $item ~[HELPER_on] $location
+    ~[HELPER_place] $item ~[HELPER_in] $location
+    put down $item
+    put down $item ~[HELPER_on] $location
+    put down $item ~[HELPER_in] $location
+    release $item
 ~[placing]
-		~[HELPER_placing] $item ~[HELPER_on] $location
-		~[HELPER_placing] $item ~[HELPER_in] $location
-		put down $item
-		put down $item ~[HELPER_on] $location
-		put down $item ~[HELPER_in] $location
-		release $item
+    ~[HELPER_placing] $item ~[HELPER_on] $location
+    ~[HELPER_placing] $item ~[HELPER_in] $location
+    put down $item
+    put down $item ~[HELPER_on] $location
+    put down $item ~[HELPER_in] $location
+    release $item
 ~[HELPER_in]
     in
     within
@@ -73,16 +73,16 @@
     put
     release
     place
-		leave
-		stick
-		position
+    leave
+    stick
+    position
 ~[HELPER_placing]
-		putting
-		releasing
-		placing
-		leaving
-		sticking
-		positioning
+    putting
+    releasing
+    placing
+    leaving
+    sticking
+    positioning
 
 // handoff categories
 %[handoff_start]('training':'800')
@@ -95,18 +95,18 @@
     ~[next?] ~[please?] ~[HELPER_handoff] $item to $subject
 ~[handoff_bare]
     ~[HELPER_handoff] $item to $subject
-		~[HELPER_handoff] $subject $item
+    ~[HELPER_handoff] $subject $item
 ~[handing_off]
     ~[HELPER_handing_off] $item to $subject
-		~[HELPER_handing_off] $subject $item
+    ~[HELPER_handing_off] $subject $item
 ~[HELPER_handoff]
     give
     hand over
-		offer
+    offer
 ~[HELPER_handing_off]
     giving
     handing over
-		offering
+    offering
 
 // move categories
 %[move_start]('training':'800')
@@ -142,15 +142,15 @@
     navigating
     getting
 ~[direction]
-		left
-		right
-		forward
-		back
-		here
-		there
-		over here
-		over there
-		away
+    left
+    right
+    forward
+    back
+    here
+    there
+    over here
+    over there
+    away
 
 // gesture categories
 %[gesture_start]('training':'800')
@@ -250,15 +250,15 @@
     asking $subject a ~[question] ~[question_topic]
     saying a ~[question] ~[question_topic]
     giving $subject a ~[question] ~[question_topic]
-    asking $question
+    asking $speech
 ~[ask_bare]
     ask a ~[question] ~[question_topic]
     ask $subject a ~[question] ~[question_topic]
     say a ~[question] ~[question_topic]
     give $subject a ~[question] ~[question_topic]
-    ask $question
+    ask $speech
 ~[question_topic]
-    about $question
+    about $speech
 ~[grab]
     ~[next?] ~[please?] ~[grab_bare]
 ~[grab_bare]
@@ -286,11 +286,15 @@
     talk
     say stuff to $subject
     say stuff
+    say $speech to $subject
+    say $speech
 ~[saying]
     talking to $subject
     talking
     saying stuff to $subject
     saying stuff
+    saying $speech to $subject
+    saying $speech
 ~[listen]
     ~[next?] ~[please?] ~[listen_bare]
 ~[listen_bare]
